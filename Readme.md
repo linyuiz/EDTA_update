@@ -32,12 +32,12 @@ Usage:
 	zgtools EDTA_update genome.fa 60 5 RepeatModeler2-families.fa curated.TElib.fa slurm EDTA_2.3 /opt/conda
 
     genomoe.fa            --Genome File
-	1.3e-8                --Neutral mutation rate(Example: 1.3e-8 form rice)
+	1.3e-8                --Neutral mutation rate(Example: 1.3e-8 from rice, 7e-9 from atha)
 	60                    --Each Task Threads
 	5                     --Parallel Task Num
-	*-families.fa         --RepeatModeler2 Library(none)
-	curated.TElib.fa      --Input Curated TE Library(none)
-	slurm                 --Local/Slurm Mode
+	*-families.fa         --RepeatModeler2 Library(default: none)
+	curated.TElib.fa      --Input Curated TE Library(default: none)
+	slurm                 --Local/Slurm Mode(local/slurm)
 	EDTA_2.3              --Conda Env Name
 	/opt/conda            --Conda Path(Must Have: your_path/bin/activate)
 
