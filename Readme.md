@@ -1,3 +1,6 @@
+<div align="center"><img src="https://s2.loli.net/2025/01/10/WzwaHxSGMrKl8st.png" alt="Your Image Description" /></div>
+
+---
 # EDTA_update -- This is a modified version of EDTA
 For those working on genome transposon annotation, EDTA (Extensive de novo TE Annotator) is a familiar name. It is currently recognized as one of the most accurate annotation pipelines, but the original workflow often presents several frustrating issues during execution:  
 
