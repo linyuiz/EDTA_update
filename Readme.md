@@ -75,8 +75,8 @@ The Nextflow execution trace in the diagram has been hidden. For the specific ti
 
 # Main output
 The output EDTA.TElib.fa is recommended to be adjusted using ```TEtrimmer``` for better TE annotation results.
+The output files are basically consistent with the EDTA output results, and the ⭐️-marked files are those commonly used by most people.
 ```
-.
 ├── 01.EDTA.raw
 │   ├── genome.fa.mod.EDTA.intact.raw.fa        ⭐️
 │   ├── genome.fa.mod.EDTA.intact.raw.gff3      ⭐️
