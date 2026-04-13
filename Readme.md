@@ -67,8 +67,8 @@ Exmaple2:
 	zgtools EDTA_update genome.fa 1.3e-8 60 5 none curated.TElib.fa slurm EDTA_2.3 /opt/conda
 
 ```
-Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.
-For a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA_update scripts into a single image and distribute the Slurm tasks using that image.
+Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.    
+For a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA_update scripts into a single image and distribute the Slurm tasks using that image.    
 If you need a reliable TE library, you can check out: https://github.com/simonorozcoarias/PanTEon/  
 
 ---
