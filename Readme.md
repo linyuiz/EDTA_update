@@ -32,6 +32,7 @@ wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' ED
 mamba env update -f EDTA_2.3.yml
 tar -zxvf zgtools-EDTA_v2.3.0-2.tar.gz
 cd zgtools-EDTA_v2.3.0-2 && chmod +x zg*
+./zgtools EDTA_update
 ```
 ---
 
