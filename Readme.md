@@ -68,9 +68,50 @@ For a multi-node Slurm cluster, the EDTA conda environment must be installed in 
 # Run log
 
 This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda```】runtime log:   
-<img alt="image" src="https://github.com/user-attachments/assets/accae835-723c-4b9c-a9c4-64fd88c8f4f0" width=70%/>
+<img alt="image" src="https://github.com/user-attachments/assets/b62fa05a-2e67-4107-b064-6c0e4e7b4bc3" width=70%/>
 
 ---
 
 # Main output
 The output EDTA.TElib.fa is recommended to be adjusted using ```TEtrimmer``` for better TE annotation results.
+```
+.
+├── 01.EDTA.raw
+│   ├── genome.fa.mod.EDTA.intact.raw.fa        ⭐️
+│   ├── genome.fa.mod.EDTA.intact.raw.gff3      ⭐️
+│   ├── genome.fa.mod.Helitron.intact.raw.bed
+│   ├── genome.fa.mod.Helitron.intact.raw.fa
+│   ├── genome.fa.mod.Helitron.intact.raw.fa.anno.list
+│   ├── genome.fa.mod.Helitron.intact.raw.gff3
+│   ├── genome.fa.mod.LINE.raw.fa
+│   ├── genome.fa.mod.LTR.intact.raw.fa
+│   ├── genome.fa.mod.LTR.intact.raw.fa.anno.list
+│   ├── genome.fa.mod.LTR.intact.raw.gff3
+│   ├── genome.fa.mod.LTR.raw.fa
+│   ├── genome.fa.mod.RM2.fa
+│   ├── genome.fa.mod.SINE.raw.fa
+│   ├── genome.fa.mod.TIR.intact.raw.bed
+│   ├── genome.fa.mod.TIR.intact.raw.fa
+│   ├── genome.fa.mod.TIR.intact.raw.fa.anno.list
+│   └── genome.fa.mod.TIR.intact.raw.gff3
+├── 02.EDTA.combine
+│   ├── genome.fa.mod.EDTA.fa.stg1
+│   ├── genome.fa.mod.EDTA.intact.fa.cln
+│   ├── genome.fa.mod.Helitron.intact.raw.fa.cln
+│   ├── genome.fa.mod.Helitron.intact.raw.fa.int.cln
+│   ├── genome.fa.mod.LINE.raw.fa
+│   ├── genome.fa.mod.LTR.intact.raw.fa.cln
+│   ├── genome.fa.mod.LTR.raw.fa.cln
+│   ├── genome.fa.mod.SINE.raw.fa.cln
+│   ├── genome.fa.mod.TIR.intact.raw.fa.cln
+│   └── genome.fa.mod.TIR.intact.raw.fa.int.cln
+├── 03.EDTA.final
+│   ├── genome.fa.mod.EDTA.TElib.fa
+│   ├── genome.fa.mod.EDTA.TElib.merge.fa
+│   └── genome.fa.mod.EDTA.TElib.novel.fa
+├── 04.EDTA.anno
+│   ├── genome.fa.mod.EDTA.TEanno.gff3  ⭐️
+│   ├── genome.fa.mod.EDTA.TEanno.out   ⭐️
+│   └── genome.fa.mod.EDTA.TEanno.sum   ⭐️
+└── LTR_insert_time.txt                 ⭐️
+```
