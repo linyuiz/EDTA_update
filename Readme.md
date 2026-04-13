@@ -51,10 +51,11 @@ Exmaple2:
 
 ```
 Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.
+Note that for a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA_update scripts into a single image and distribute the Slurm tasks using that image.
 
 # Run log
 
-This is the command【zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda】runtime log:   
+This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda```】runtime log:   
 <img alt="image" src="https://github.com/user-attachments/assets/accae835-723c-4b9c-a9c4-64fd88c8f4f0" width=70%/>
 
 # Main output
