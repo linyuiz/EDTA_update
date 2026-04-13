@@ -77,8 +77,8 @@ Exmaple2:
 
 This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda```】runtime log:   
 <img alt="image" src="https://github.com/user-attachments/assets/b62fa05a-2e67-4107-b064-6c0e4e7b4bc3" width=70%/>   
-The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.
-The above tests were conducted on four nodes, each with 1TB of memory and 256 threads.
+The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.    
+⭐️The above tests were conducted on four nodes, each with 1TB of memory and 256 threads.
 
 ---
 
