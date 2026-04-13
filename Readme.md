@@ -54,7 +54,7 @@ Note that the total Threads are threads multiplied by Parallel Task Num, for exa
 
 # Run log
 
-This is the command【zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda】runtime log:
+This is the command【zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda】runtime log:   
 <img alt="image" src="https://github.com/user-attachments/assets/accae835-723c-4b9c-a9c4-64fd88c8f4f0" width=70%/>
 
 # Main output
