@@ -107,8 +107,8 @@ The output EDTA.TElib.fa is recommended to be adjusted using ```TEtrimmer``` for
 │   └── genome.fa.mod.TIR.intact.raw.fa.int.cln
 ├── 03.EDTA.final
 │   ├── genome.fa.mod.EDTA.TElib.fa
-│   ├── genome.fa.mod.EDTA.TElib.merge.fa
-│   └── genome.fa.mod.EDTA.TElib.novel.fa
+│   ├── genome.fa.mod.EDTA.TElib.merge.fa(HQlib+EDTA_denovolib)  ⭐️
+│   └── genome.fa.mod.EDTA.TElib.novel.fa  ⭐️  
 ├── 04.EDTA.anno
 │   ├── genome.fa.mod.EDTA.TEanno.gff3  ⭐️
 │   ├── genome.fa.mod.EDTA.TEanno.out   ⭐️
