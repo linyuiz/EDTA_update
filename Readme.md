@@ -37,6 +37,7 @@ mamba install -c conda-forge -c bioconda nextflow==22.10.6
 tar -zxvf zgtools-EDTA_v2.3.0-2.tar.gz
 cd zgtools-EDTA_v2.3.0-2 && chmod +x zg*
 ./zgtools EDTA_update
+#If the decompression fails, you can try extracting it on the Windows desktop: zgtools-EDTA_v2.3.0-2.tar.gz
 ```
 ---
 
