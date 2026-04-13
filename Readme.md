@@ -25,7 +25,7 @@ mamba env update -f EDTA_2.3.yml
 
 # Usage
 
-You just need to soft link zgtools to your usual bin folder such as【~/bin】, or use an absolute path such as【/project/softawre/zgtools-EDTA_2.0.2_v2/zgtools EDTA_update】, Be sure to have【hisat2】and【seqkit】in your $PATH.
+You just need to soft link zgtools to your usual bin folder such as【~/bin】, or use an absolute path such as【/project/softawre/zgtools EDTA_update】.
 ```shell
 Usage:
 
