@@ -15,6 +15,10 @@ Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B.
 
 ---
 
+# Other modified versions of the software
+🚀For other modified versions of the software, please see: https://github.com/linyuiz/zgtools?tab=readme-ov-file#%E6%94%B9%E7%89%88%E8%BD%AF%E4%BB%B6
+
+---
 # Installation
 ### Install with conda/mamba (Linux64) 
 To install, first download the latest distribution tarball：zgtools-EDTA_*.tar.gz (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
