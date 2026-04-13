@@ -26,10 +26,14 @@ Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B.
 ### Install with conda/mamba (Linux64) 
 To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-2/zgtools-EDTA_v2.3.0-2.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
 ```shell
-
+##EDTA install
 mamba create -n EDTA_2.3 && conda activate EDTA_2.3
 wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' EDTA_2.3.yml
 mamba env update -f EDTA_2.3.yml
+##nextflow install
+mamba create -n nextflow && conda activate nextflow
+mamba install -c conda-forge -c bioconda nextflow==22.10.6
+##zgtools install
 tar -zxvf zgtools-EDTA_v2.3.0-2.tar.gz
 cd zgtools-EDTA_v2.3.0-2 && chmod +x zg*
 ./zgtools EDTA_update
@@ -42,7 +46,7 @@ You just need to soft link zgtools to your usual bin folder such as【~/bin】, 
 ```shell
 Usage:
 
-	zgtools EDTA_update genome.fa 60 5 RepeatModeler2-families.fa curated.TElib.fa slurm EDTA_2.3 /opt/conda
+	zgtools EDTA_update genome.fa 1.3e-8 60 5 RepeatModeler2-families.fa curated.TElib.fa slurm EDTA_2.3 /opt/conda
 
     genomoe.fa            --Genome File
 	1.3e-8                --Neutral mutation rate(Example: 1.3e-8 from rice, 7e-9 from atha)
@@ -56,11 +60,11 @@ Usage:
 
 Example1:
 
-	zgtools EDTA_update genome.fa 60 2 none none local EDTA_2.3 /opt/conda
+	zgtools EDTA_update genome.fa 1.3e-8 60 2 none none local EDTA_2.3 /opt/conda
 
 Exmaple2:
 
-	zgtools EDTA_update genome.fa 60 5 none curated.TElib.fa slurm EDTA_2.3 /opt/conda
+	zgtools EDTA_update genome.fa 1.3e-8 60 5 none curated.TElib.fa slurm EDTA_2.3 /opt/conda
 
 ```
 Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.
