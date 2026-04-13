@@ -9,7 +9,7 @@ For those working on genome transposon annotation, EDTA (Extensive de novo TE An
 
 To address these problems, I recently undertook a complete overhaul of EDTA—introducing the Nextflow workflow engine alongside Shell scripts, breathing new life into this well-established software.
 
-If you encounter any issues, feel free to ask in the issue section. Please also support the original authors. If you use EDTA, kindly cite it:   
+If you encounter any issues, feel free to ask in the issue section. Please also support the original authors. **If you use EDTA, kindly cite it:**   
 
 Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B., Elliott T. A., Ware D., Peterson T., Jiang N.✉, Hirsch C. N.✉ and Hufford M. B.✉ (2019). Benchmarking Transposable Element Annotation Methods for Creation of a Streamlined, Comprehensive Pipeline. Genome Biol. 20(1): 275. 
 
