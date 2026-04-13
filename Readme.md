@@ -24,12 +24,14 @@ Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B.
 ---
 # Installation
 ### Install with conda/mamba (Linux64) 
-To install, first download the latest distribution tarball：zgtools-EDTA_*.tar.gz (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
+To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-2/zgtools-EDTA_v2.3.0-2.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
 ```shell
 
 mamba create -n EDTA_2.3 && conda activate EDTA_2.3
 wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' EDTA_2.3.yml
 mamba env update -f EDTA_2.3.yml
+tar -zxvf zgtools-EDTA_v2.3.0-2.tar.gz
+cd zgtools-EDTA_v2.3.0-2 && chmod +x zg*
 ```
 ---
 
