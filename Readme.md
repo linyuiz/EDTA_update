@@ -31,7 +31,7 @@ Usage:
 
 	zgtools EDTA_update genome.fa 60 5 RepeatModeler2-families.fa curated.TElib.fa slurm EDTA_2.3 /opt/conda
 
-  genomoe.fa            --Genome File
+    genomoe.fa            --Genome File
 	1.3e-8                --Neutral mutation rate(Example: 1.3e-8 form rice)
 	60                    --Each Task Threads
 	5                     --Parallel Task Num
