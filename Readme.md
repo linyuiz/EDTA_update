@@ -71,9 +71,10 @@ Exmaple2:
 ```
 🚩Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.    
 🚩For a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA_update scripts into a single image and distribute the Slurm tasks using that image.    
-🚩If you need a reliable TE library, you can check out: https://github.com/simonorozcoarias/PanTEon/  
+🚩If you need a reliable TE library, you can check out: https://github.com/simonorozcoarias/PanTEon/   
 🚩Or you can download these two files, unzip them, and then concatenate their contents using ```cat```: ```https://www.girinst.org/server/RepBase/protected/repeatmaskerlibraries/RepBaseRepeatMaskerEdition-20181026.tar.gz``` and
 ```wget https://www.dfam.org/releases/current/families/Dfam-RepeatMasker.lib.gz```.        
+
 ---
 
 # Run log
