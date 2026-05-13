@@ -1,4 +1,4 @@
-<img width="376" height="137" alt="image" src="https://github.com/user-attachments/assets/59994b00-0044-44b3-a9d5-e28995503d77" /><div align="center"><img alt="image" src="https://github.com/user-attachments/assets/729a8e17-94a4-492a-8d01-c902303c06a1" width=45%/></div>
+<div align="center"><img alt="image" src="https://github.com/user-attachments/assets/729a8e17-94a4-492a-8d01-c902303c06a1" width=45%/></div>
 
 ---
 # EDTA_update -- This is a modified version of EDTA
