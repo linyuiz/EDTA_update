@@ -1,4 +1,4 @@
-<div align="center"><img alt="image" src="https://github.com/user-attachments/assets/729a8e17-94a4-492a-8d01-c902303c06a1" width=45%/></div>
+<img width="376" height="137" alt="image" src="https://github.com/user-attachments/assets/59994b00-0044-44b3-a9d5-e28995503d77" /><div align="center"><img alt="image" src="https://github.com/user-attachments/assets/729a8e17-94a4-492a-8d01-c902303c06a1" width=45%/></div>
 
 ---
 # EDTA_update -- This is a modified version of EDTA
@@ -69,6 +69,7 @@ Exmaple2:
 	zgtools EDTA_update genome.fa 1.3e-8 60 5 none curated.TElib.fa slurm EDTA_2.3 /opt/conda
 
 ```
+⭐️Note regarding genome ID format: Chromosome identifiers should follow formats like Chr1, chr1, Chr1A, or ChrA1. Unanchored sequences (contigs/scaffolds) should be named using the format scaffold1, scaffold2, etc.
 🚩Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.    
 🚩For a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA_update scripts into a single image and distribute the Slurm tasks using that image.    
 🚩If you need a reliable TE library, you can check out: https://github.com/simonorozcoarias/PanTEon/   
