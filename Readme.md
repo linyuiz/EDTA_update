@@ -81,7 +81,8 @@ Exmaple2:
 # Run log
 
 This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda```】runtime log:   
-```#######Data#######
+```shell
+#######Data#######
 Genome: /test/13.EDTA_update/plant.genome.fa
 Neutral mutation rate: 7e-9
 Each Task Threads: 60
