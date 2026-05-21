@@ -85,7 +85,7 @@ This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa
 Genome: /test/13.EDTA_update/plant.genome.fa
 Neutral mutation rate: 7e-9
 Each Task Threads: 60
-Parallel Task Num: 1
+Parallel Task Num: 5
 Exist RepeatModeler Lib: /test/13.EDTA_update/genome.fa.mod-families.fa
 Curated TE lib: /test/13.EDTA_update/Plant.TElib.fa
 Local/Slurm Mode: local
