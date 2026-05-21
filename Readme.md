@@ -178,6 +178,8 @@ The output files are basically consistent with the EDTA output results, and the 
 ├── 04.EDTA.anno
 │   ├── genome.fa.mod.EDTA.TEanno.gff3  ⭐️
 │   ├── genome.fa.mod.EDTA.TEanno.out   ⭐️
+│   ├── genome.repeat_hard_masked.fa    ⭐️
+│   └── genome.repeat_soft_masked.fa    ⭐️   
 │   └── genome.fa.mod.EDTA.TEanno.sum   ⭐️
 └── LTR_insert_time.txt                 ⭐️
 ```
