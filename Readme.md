@@ -130,7 +130,9 @@ LTR/Gypsy    173,449  129,528,813  17.14
 LTR/ERV      1,555    164,971      0.02
 LTR/unknown  67,643   32,182,124   4.26
 Unknown      127,859  43,488,266   5.76
-Total        684,962  328,023,621  43.41```
+Total        684,962  328,023,621  43.41
+```
+
 The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.    
 ⭐️The above tests were conducted on four nodes, each with 1TB of memory and 256 threads.
 
