@@ -173,7 +173,7 @@ The output files are basically consistent with the EDTA output results, and the 
 │   └── genome.fa.mod.TIR.intact.raw.fa.int.cln
 ├── 03.EDTA.final
 │   ├── genome.fa.mod.EDTA.TElib.fa
-│   ├── genome.fa.mod.EDTA.TElib.merge.fa(HQlib+EDTA_denovolib)  ⭐️
+│   ├── genome.fa.mod.EDTA.TElib.merge.fa  ⭐️ (HQlib + EDTA_denovo_lib) 
 │   └── genome.fa.mod.EDTA.TElib.novel.fa  ⭐️  
 ├── 04.EDTA.anno
 │   ├── genome.fa.mod.EDTA.TEanno.gff3  ⭐️
