@@ -23,8 +23,9 @@ Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B.
 
 ---
 # Installation
-### Install with conda/mamba (Linux64) 
+## Install with conda/mamba (Linux64) 
 To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-4/zgtools-EDTA_v2.3.0-4.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
+
 ```shell
 ##EDTA install
 mamba create -n EDTA_2.3 && conda activate EDTA_2.3
@@ -34,6 +35,21 @@ mamba install pandas<3 tir-learner=3.0.7 repeatmodeler=2.0.5  #issue: https://gi
 ##nextflow install
 mamba create -n nextflow && conda activate nextflow
 mamba install -c conda-forge -c bioconda nextflow==22.10.6
+
+#If you do not need to run TEtrimmer, you can skip this step.
+##intasll TEtrimmer conda env 
+mamba create -n TEtrimmer && conda activate TEtrimmer
+mamba install -c bioconda python=3.10 samtools=1.22.1 tetrimmer=1.7.2
+##git clone TEtrimmer
+git clone https://github.com/qjiangzhao/TEtrimmer.git
+##download Pfam data
+aria2c -x 10 https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+aria2c -x 10 https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.dat.gz
+gzip -d Pfam-A.hmm.gz
+gzip -d Pfam-A.hmm.dat.gz
+conda activate TEtrimmer
+hmmpress Pfam-A.hmm
+
 ##zgtools install
 tar -zxvf zgtools-EDTA_v2.3.0-4.tar.gz
 cd zgtools-EDTA_v2.3.0-4 && chmod +x zg*
