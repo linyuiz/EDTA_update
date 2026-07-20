@@ -48,26 +48,17 @@ You just need to soft link zgtools to your usual bin folder such as【~/bin】, 
 ```shell
 Usage:
 
-	zgtools EDTA_update genome.fa 1.3e-8 60 5 RepeatModeler2-families.fa curated.TElib.fa slurm EDTA_2.3 /opt/conda
+        zgtools EDTA_update Run_EDTA.cfg
 
-    genomoe.fa            --Genome File
-	1.3e-8                --Neutral mutation rate(Example: 1.3e-8 from rice, 7e-9 from atha)
-	60                    --Each Task Threads
-	5                     --Parallel Task Num
-	*-families.fa         --RepeatModeler2 Library(default: none)
-	curated.TElib.fa      --Input Curated TE Library(default: none)
-	slurm                 --Local/Slurm Mode(local/slurm)
-	EDTA_2.3              --Conda Env Name
-	/opt/conda            --Conda Path(Must Have: your_path/bin/activate)
+        Run_EDTA.cfg       --Run Config
 
 Example1:
 
-	zgtools EDTA_update genome.fa 1.3e-8 60 2 none none local EDTA_2.3 /opt/conda
+        zgtools EDTA_update example_cfg
 
-Exmaple2:
+Example2:
 
-	zgtools EDTA_update genome.fa 1.3e-8 60 5 none curated.TElib.fa slurm EDTA_2.3 /opt/conda
-
+        zgtools EDTA_update Run_EDTA.cfg
 ```
 ⭐️Note regarding genome ID format: Chromosome identifiers should follow formats like Chr1, chr1, Chr1A, or ChrA1. Unanchored sequences (contigs/scaffolds) should be named using the format scaffold1, scaffold2, etc.
 🚩Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.    
@@ -78,59 +69,185 @@ Exmaple2:
 
 ---
 
+# Example
+First, run `zgtools EDTA_update example_cfg` to generate a sample configuration file, then modify the parameters below according to your needs:
+```
+zgtools EDTA_update example_cfg
+
+Run_EDTA.cfg:
+##Data
+work_mode=local                                 #local/slurm
+genome_fa=genome.fa                             #genome file
+miu_rate=1.3e-8                                 #[plant]Osat:1.3e-8; Atha:7e-9
+##RepeatAnno
+RepeatModeler2_exist_lib=none                   #none/RM2-families.fa
+EDTA_used_curated_TElib=curated.TElib.fa        #none/curated.TElib.fa
+EDTA_subtask_threads=60                         #EDTA each task threads
+EDTA_parallel_subtask_num=2                     #EDTA parallel subtask number
+TEtrimmer_run_mode=run                          #run/skip
+TEtrimmer_threads=90                            #TEtrimmer threads
+TEtrimmer_path=~/software/TEtrimmer/tetrimmer/  #TEtrimmer path
+TEtrimmer_pfam_db=./pfam_db                     #TEtrimmer pfam db path
+RepeatMasker_threads=60                         #RepeatMasker each task threads
+RepeatMasker_parallel_num=2                     #RepeatMasker parallel num
+whether_count_solo_intact_LTR=run               #run/skip
+##CondaEnv
+EDTA_env_name=EDTA_2.3                          #EDTA env name
+TEtrimmer_env_name=TEtrimmer                    #TEtrimmer env name
+Nextflow_env_name=nextflow                      #Nextflow env name
+conda_path=/opt/conda                           #Conda Path
+```
+Then, run `zgtools EDTA_update example_cfg`. If want to stop the job, please press `Ctrl + C`, not​ `Ctrl + Z`.
+
 # Run log
 
 This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda```】runtime log:   
 ```
 #######Data#######
-Genome: /test/13.EDTA_update/plant.genome.fa
-Neutral mutation rate: 7e-9
-Each Task Threads: 60
-Parallel Task Num: 5
-Exist RepeatModeler Lib: /test/13.EDTA_update/genome.fa.mod-families.fa
-Curated TE lib: /test/13.EDTA_update/Plant.TElib.fa
-Local/Slurm Mode: local
-Conda Env Name: EDTA_2.3
-Conda Path: /opt/conda
+##Data
+clean_mode=keep				        #keep/clean
+work_mode=local                                 #local/slurm
+genome_fa=genome.fa                             #genome file
+miu_rate=1.3e-8            	                #[plant]Osat:1.3e-8; Atha:7e-9
+##RepeatAnno
+RepeatModeler2_exist_lib=none                   #none/RM2-families.fa
+EDTA_used_curated_TElib=curated.TElib.fa	#none/curated.TElib.fa
+EDTA_subtask_threads=60                         #EDTA each task threads
+EDTA_parallel_subtask_num=1			#EDTA parallel subtask number
+TEtrimmer_run_mode=run   			#run/skip
+TEtrimmer_threads=90				#TEtrimmer threads
+TEtrimmer_path=/project101/zhangyaolong/software/TEtrimmer/tetrimmer/  #TEtrimmer path
+TEtrimmer_pfam_db=./pfam_db                     #TEtrimmer pfam db path
+RepeatMasker_threads=60				#RepeatMasker each task threads
+RepeatMasker_parallel_num=2			#RepeatMasker parallel num
+whether_count_solo_intact_LTR=run		#run/skip
+##CondaEnv
+EDTA_env_name=EDTA_2.3				#EDTA env name
+TEtrimmer_env_name=TEtrimmer			#TEtrimmer env name
+Nextflow_env_name=nextflow			#Nextflow env name
+conda_path=/opt/conda				#Conda Path
 
 #######Run#######
 1. transcode genome ...
-Genome Size: 755,620,956 bp
+Genome Size: 385,710,679 bp
 2. denovo discover raw TEs ...
 2.1. parallel discover TEs, threads: 60
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [cheesy_fourier] DSL2 - revision: 9985e58356
+executor >  slurm (4)
+[ec/86fbe9] process > discoverTE (LINE) [100%] 4 of 4 ✔
+Completed at: 17-Jul-2026 02:54:44
+Duration    : 11h 12m 2s
+CPU hours   : 13.7
+Succeeded   : 4
+
+
 2.2. deal with rawTE output ...
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [evil_sax] DSL2 - revision: 6e4726fc13
+executor >  slurm (5)
+[a0/38a834] process > deal_with (TIR) [100%] 5 of 5 ✔
+Completed at: 17-Jul-2026 03:27:00
+Duration    : 32m 11s
+CPU hours   : 0.5
+Succeeded   : 5
+
+
 2.3. check rawTE results ...
 2.4. modify LTR insert time ...
-LTR insert time file: /test/13.EDTA_update/output_of_EDTA_update/LTR_insert_time.txt
+LTR insert time file: /test/02.EDTA_update/03.EDTA+TEtrimmer/output_of_EDTA_update/LTR_insert_time.txt
 3. filter raw TE candidates and the make stage 1 library ...
 3.1. purify raw LTR/Helitron/TIR ...
 3.2. clean other TEs ...
 3.3. clean LINEs and LTRs in SINEs ...
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [mighty_heyrovsky] DSL2 - revision: 934574cad0
+executor >  local (1)
+[1e/610920] process > FilterTE (clean_SINE) [100%] 1 of 1 ✔
+
 3.4. clean LTRs and nonLTRs in TIRs and Helitrons ...
 3.6. check stg1 raw library ...
 4. merge other TE library ...
 4.1. identify remaining TEs in the filtered RM2 library ...
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [evil_ritchie] DSL2 - revision: 8717af2341
+executor >  local (1)
+[06/abef0d] process > MergeTE (clean_RM2) [100%] 1 of 1 ✔
+
 4.2. remove known TEs in the EDTA library ...
-5. Post-library annotate ...
-5.1. split genome ...
-5.2. annotate TEs using RepeatMasker ...
-5.3. merge RepeatMasker output ...
-5.4. make summary table for the non-overlapping annotation ...
-5.5. generate masked genome ...
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [scruffy_minsky] DSL2 - revision: 8717af2341
+executor >  local (1)
+[d1/0b865b] process > MergeTE (clean_HQlib) [100%] 1 of 1 ✔
+Completed at: 17-Jul-2026 15:04:50
+Duration    : 2m 34s
+CPU hours   : (a few seconds)
+Succeeded   : 1
+
+
+5. TEtrimmer generate curated TE library ...
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [disturbed_wilson] DSL2 - revision: d806bbdbdf
+executor >  local (1)
+[b6/6325d5] process > trimTE (TEtrimmer) [100%] 1 of 1 ✔
+Completed at: 18-Jul-2026 03:09:57
+Duration    : 6h 7m 41s
+CPU hours   : 6.1
+Succeeded   : 1
+
+
+6. Post-library annotate ...
+6.1. split genome ...
+6.2. annotate TEs using RepeatMasker with TEtrimmer results ...
+N E X T F L O W  ~  version 22.10.6
+Launching `muti-progress.nf` [exotic_mahavira] DSL2 - revision: 4cb12bb0f8
+executor >  local (12)
+[2f/89ffc9] process > AnnoTE (seq_3.fasta) [100%] 12 of 12 ✔
+Completed at: 18-Jul-2026 12:39:47
+Duration    : 9m 20s
+CPU hours   : 0.3
+Succeeded   : 12
+
+
+6.3. merge RepeatMasker output ...
+6.4. make summary table for the non-overlapping annotation ...
+TE anno statistic:
+Class     Family         Count    bpMasked     %masked
+LTR                      52,174   93,424,430   24.22
+          Copia          10,046   13,627,935   3.53
+          Gypsy          38,371   77,348,124   20.05
+          TRIM           943      250,050      0.06
+          Bel-Pao        0        0            0.00
+          ERV            0        0            0.00
+          unknown        1,462    1,364,722    0.35
+DNA                      220,972  74,974,112   19.44
+TIR       CACTA          19,586   14,327,744   3.71
+          Mutator        65,084   22,868,013   5.93
+          PIF-Harbinger  40,501   9,735,814    2.52
+          Tc1-Mariner    31,473   6,818,056    1.77
+          hAT            19,632   5,997,015    1.55
+          unknown        9,470    2,215,790    0.57
+NonTIR    Helitron       33,752   13,467,592   3.49
+LINE                     8,132    4,795,627    1.24
+          R2             0        0            0.00
+          RTE            0        0            0.00
+          L1             4,724    3,030,757    0.79
+          unknown        3,408    1,832,455    0.48
+SINE                     5,250    861,246      0.22
+          tRNA           1,855    328,773      0.09
+          7SL            0        0            0.00
+          5S             0        0            0.00
+          unknown        3,395    544,874      0.14
+Unknown                  330      229,356      0.06
+Total TE                 286,940  174,130,365  45.15
+
+6.5. generate masked genome ...
+6.6. calculate solo/intact LTR ratio ...
+Total_solo  Total_intact  Overall_SI_ratio
+1,590       93            17.10
 
 #######Results#######
-Output: /test/13.EDTA_update/output_of_EDTA_update/
-Order        Count    bpMasked     %masked
-DNA          162,902  53,855,048   7.13
-LINE         22,060   6,791,674    0.90
-SINE         14,720   3,272,878    0.43
-LTR          339,733  221,404,889  29.30
-LTR/Copia    89,659   62,250,968   8.24
-LTR/Gypsy    173,449  129,528,813  17.14
-LTR/ERV      1,555    164,971      0.02
-LTR/unknown  67,643   32,182,124   4.26
-Unknown      127,859  43,488,266   5.76
-Total        684,962  328,023,621  43.41
+Output: /test/02.EDTA_update/03.EDTA+TEtrimmer/output_of_EDTA_update/
 ```
 
 The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.    
