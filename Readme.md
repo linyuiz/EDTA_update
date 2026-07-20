@@ -193,9 +193,10 @@ Total_solo  Total_intact  Overall_SI_ratio
 #######Results#######
 Output: /test/02.EDTA_update/03.EDTA+TEtrimmer/output_of_EDTA_update/
 ```
-
 The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.    
 ⭐️The above tests were conducted on four nodes, each with 1TB of memory and 256 threads.
+
+<img width="1481" height="531" alt="c4c7c44d-2e63-42df-bdc8-10469442ada6" src="https://github.com/user-attachments/assets/76bc64ad-9959-4515-84da-cc414f7676cb" />
 
 ---
 
