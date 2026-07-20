@@ -86,7 +86,7 @@ Example2:
 ---
 
 # Example
-First, run `zgtools EDTA_update example_cfg` to generate a sample configuration file, then modify the parameters below according to your needs:
+1️⃣ First, run `zgtools EDTA_update example_cfg` to generate a sample configuration file, then modify the parameters below according to your needs:
 ```
 zgtools EDTA_update example_cfg
 
@@ -113,8 +113,8 @@ TEtrimmer_env_name=TEtrimmer                    #TEtrimmer env name
 Nextflow_env_name=nextflow                      #Nextflow env name
 conda_path=/opt/conda                           #Conda Path
 ```
-Then, run `zgtools EDTA_update example_cfg`. If want to stop the job, please press `Ctrl + C`, not​ `Ctrl + Z`.            
-Note:​ You are free to set `TEtrimmer_run_mode`. This will create either a `run_TEtrimmer` or `skip_TEtrimmer` directory under `06.anno/`, where subsequent tasks will be executed without conflicting with other files.
+2️⃣ Then, run `zgtools EDTA_update example_cfg`. If want to stop the job, please press `Ctrl + C`, not​ `Ctrl + Z`.            
+✍️Note:​ You are free to set `TEtrimmer_run_mode`. This will create either a `run_TEtrimmer` or `skip_TEtrimmer` directory under `06.anno/`, where subsequent tasks will be executed without conflicting with other files.
 
 # Run log
 
