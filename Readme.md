@@ -24,7 +24,7 @@ Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B.
 ---
 # Installation
 ## Install with conda/mamba (Linux64) 
-To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-4/zgtools-EDTA_v2.3.0-4.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
+To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-5/zgtools-EDTA_v2.3.0-5.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
 
 ```shell
 ##EDTA install
@@ -51,8 +51,8 @@ conda activate TEtrimmer
 hmmpress Pfam-A.hmm
 
 ##zgtools install
-tar -zxvf zgtools-EDTA_v2.3.0-4.tar.gz
-cd zgtools-EDTA_v2.3.0-4 && chmod +x zg*
+tar -zxvf zgtools-EDTA_v2.3.0-5.tar.gz
+cd zgtools-EDTA_v2.3.0-5 && chmod +x zg*
 ./zgtools EDTA_update
 #If zg-EDTA_update cannot be found, please edit $ZG_BIN in zgtools
 ```
