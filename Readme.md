@@ -112,22 +112,14 @@ N E X T F L O W  ~  version 22.10.6
 Launching `muti-progress.nf` [cheesy_fourier] DSL2 - revision: 9985e58356
 executor >  slurm (4)
 [ec/86fbe9] process > discoverTE (LINE) [100%] 4 of 4 ✔
-Completed at: 17-Jul-2026 02:54:44
 Duration    : 11h 12m 2s
-CPU hours   : 13.7
-Succeeded   : 4
-
 
 2.2. deal with rawTE output ...
 N E X T F L O W  ~  version 22.10.6
 Launching `muti-progress.nf` [evil_sax] DSL2 - revision: 6e4726fc13
 executor >  slurm (5)
 [a0/38a834] process > deal_with (TIR) [100%] 5 of 5 ✔
-Completed at: 17-Jul-2026 03:27:00
 Duration    : 32m 11s
-CPU hours   : 0.5
-Succeeded   : 5
-
 
 2.3. check rawTE results ...
 2.4. modify LTR insert time ...
@@ -136,54 +128,20 @@ LTR insert time file: /test/02.EDTA_update/03.EDTA+TEtrimmer/output_of_EDTA_upda
 3.1. purify raw LTR/Helitron/TIR ...
 3.2. clean other TEs ...
 3.3. clean LINEs and LTRs in SINEs ...
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [mighty_heyrovsky] DSL2 - revision: 934574cad0
-executor >  local (1)
-[1e/610920] process > FilterTE (clean_SINE) [100%] 1 of 1 ✔
-
 3.4. clean LTRs and nonLTRs in TIRs and Helitrons ...
 3.6. check stg1 raw library ...
 4. merge other TE library ...
 4.1. identify remaining TEs in the filtered RM2 library ...
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [evil_ritchie] DSL2 - revision: 8717af2341
-executor >  local (1)
-[06/abef0d] process > MergeTE (clean_RM2) [100%] 1 of 1 ✔
-
 4.2. remove known TEs in the EDTA library ...
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [scruffy_minsky] DSL2 - revision: 8717af2341
-executor >  local (1)
-[d1/0b865b] process > MergeTE (clean_HQlib) [100%] 1 of 1 ✔
-Completed at: 17-Jul-2026 15:04:50
-Duration    : 2m 34s
-CPU hours   : (a few seconds)
-Succeeded   : 1
-
-
 5. TEtrimmer generate curated TE library ...
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [disturbed_wilson] DSL2 - revision: d806bbdbdf
-executor >  local (1)
 [b6/6325d5] process > trimTE (TEtrimmer) [100%] 1 of 1 ✔
-Completed at: 18-Jul-2026 03:09:57
 Duration    : 6h 7m 41s
-CPU hours   : 6.1
-Succeeded   : 1
-
 
 6. Post-library annotate ...
 6.1. split genome ...
 6.2. annotate TEs using RepeatMasker with TEtrimmer results ...
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [exotic_mahavira] DSL2 - revision: 4cb12bb0f8
-executor >  local (12)
 [2f/89ffc9] process > AnnoTE (seq_3.fasta) [100%] 12 of 12 ✔
-Completed at: 18-Jul-2026 12:39:47
 Duration    : 9m 20s
-CPU hours   : 0.3
-Succeeded   : 12
-
 
 6.3. merge RepeatMasker output ...
 6.4. make summary table for the non-overlapping annotation ...
