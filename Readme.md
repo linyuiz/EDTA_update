@@ -124,16 +124,10 @@ This is the command【```zgtools EDTA_update example_cfg```】runtime log:
 Genome Size: 385,710,679 bp
 2. denovo discover raw TEs ...
 2.1. parallel discover TEs, threads: 60
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [cheesy_fourier] DSL2 - revision: 9985e58356
-executor >  slurm (4)
 [ec/86fbe9] process > discoverTE (LINE) [100%] 4 of 4 ✔
 Duration    : 11h 12m 2s
 
 2.2. deal with rawTE output ...
-N E X T F L O W  ~  version 22.10.6
-Launching `muti-progress.nf` [evil_sax] DSL2 - revision: 6e4726fc13
-executor >  slurm (5)
 [a0/38a834] process > deal_with (TIR) [100%] 5 of 5 ✔
 Duration    : 32m 11s
 
