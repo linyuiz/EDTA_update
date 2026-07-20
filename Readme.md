@@ -36,7 +36,7 @@ mamba install pandas<3 tir-learner=3.0.7 repeatmodeler=2.0.5  #issue: https://gi
 mamba create -n nextflow && conda activate nextflow
 mamba install -c conda-forge -c bioconda nextflow==22.10.6
 
-#If you do not need to run TEtrimmer, you can skip this step.
+#If you do not need to run [TEtrimmer], you can skip this step.
 ##intasll TEtrimmer conda env 
 mamba create -n TEtrimmer && conda activate TEtrimmer
 mamba install -c bioconda python=3.10 samtools=1.22.1 tetrimmer=1.7.2
@@ -125,7 +125,7 @@ Genome Size: 385,710,679 bp
 2. denovo discover raw TEs ...
 2.1. parallel discover TEs, threads: 60
 [ec/86fbe9] process > discoverTE (LINE) [100%] 4 of 4 ✔
-Duration    : 11h 12m 2s
+Duration    : 8h 12m 2s
 
 2.2. deal with rawTE output ...
 [a0/38a834] process > deal_with (TIR) [100%] 5 of 5 ✔
