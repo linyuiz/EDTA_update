@@ -101,32 +101,8 @@ Then, run `zgtools EDTA_update example_cfg`. If want to stop the job, please pre
 
 # Run log
 
-This is the command【```zgtools EDTA_update genome.fa 7e-9 60 5 RM2-families.fa Plant.TElib.fa slurm EDTA_2.3 /opt/conda```】runtime log:   
+This is the command【```zgtools EDTA_update example_cfg```】runtime log:   
 ```
-#######Data#######
-##Data
-clean_mode=keep				        #keep/clean
-work_mode=local                                 #local/slurm
-genome_fa=genome.fa                             #genome file
-miu_rate=1.3e-8            	                #[plant]Osat:1.3e-8; Atha:7e-9
-##RepeatAnno
-RepeatModeler2_exist_lib=none                   #none/RM2-families.fa
-EDTA_used_curated_TElib=curated.TElib.fa	#none/curated.TElib.fa
-EDTA_subtask_threads=60                         #EDTA each task threads
-EDTA_parallel_subtask_num=1			#EDTA parallel subtask number
-TEtrimmer_run_mode=run   			#run/skip
-TEtrimmer_threads=90				#TEtrimmer threads
-TEtrimmer_path=/project101/zhangyaolong/software/TEtrimmer/tetrimmer/  #TEtrimmer path
-TEtrimmer_pfam_db=./pfam_db                     #TEtrimmer pfam db path
-RepeatMasker_threads=60				#RepeatMasker each task threads
-RepeatMasker_parallel_num=2			#RepeatMasker parallel num
-whether_count_solo_intact_LTR=run		#run/skip
-##CondaEnv
-EDTA_env_name=EDTA_2.3				#EDTA env name
-TEtrimmer_env_name=TEtrimmer			#TEtrimmer env name
-Nextflow_env_name=nextflow			#Nextflow env name
-conda_path=/opt/conda				#Conda Path
-
 #######Run#######
 1. transcode genome ...
 Genome Size: 385,710,679 bp
