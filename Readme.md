@@ -104,6 +104,7 @@ TEtrimmer_run_mode=run                          #run/skip
 TEtrimmer_threads=90                            #TEtrimmer threads
 TEtrimmer_path=~/software/TEtrimmer/tetrimmer/  #TEtrimmer path
 TEtrimmer_pfam_db=./pfam_db                     #TEtrimmer pfam db path
+whether_only_use_TEtrimmer_unknown=yes          #yes/no
 RepeatMasker_threads=60                         #RepeatMasker each task threads
 RepeatMasker_parallel_num=2                     #RepeatMasker parallel num
 whether_count_solo_intact_LTR=run               #run/skip
