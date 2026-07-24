@@ -54,6 +54,7 @@ hmmpress Pfam-A.hmm
 tar -zxvf zgtools-EDTA_v2.3.0-5.tar.gz
 cd zgtools-EDTA_v2.3.0-5 && chmod +x zg*
 ./zgtools EDTA_update
+#You can add zgtools to your $PATH
 #If zg-EDTA_update cannot be found, please edit $ZG_BIN in zgtools
 ```
 ---
