@@ -30,7 +30,7 @@ To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar
 ##EDTA install
 mamba create -n EDTA_2.3 && conda activate EDTA_2.3
 wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' EDTA_2.3.yml
-#or use[https://github.com/linyuiz/EDTA_update/blob/master/EDTA_2.3.yml], [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_Apr13.yml]
+#or use [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_Apr13.yml], [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_2.3.yml]
 mamba env update -f EDTA_2.3.yml
 mamba install "pandas<3" tir-learner=3.0.7 repeatmodeler=2.0.5  #issue: https://github.com/oushujun/EDTA/issues/616#issuecomment-3855060533
 ##nextflow install
