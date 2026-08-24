@@ -1,7 +1,7 @@
 <div align="center"><img alt="image" src="https://github.com/user-attachments/assets/729a8e17-94a4-492a-8d01-c902303c06a1" width=45%/></div>
 
 ---
-# EDTA_update -- This is a modified version of EDTA
+# EDTA-mod -- This is a modified version of EDTA
 For those working on genome transposon annotation, EDTA (Extensive de novo TE Annotator) is a familiar name. It is currently recognized as one of the most accurate annotation pipelines, but the original workflow often presents several frustrating issues during execution:  
 
 **1️⃣Efficiency bottleneck**: Serial execution leads to low CPU utilization, such as in the initial rawTE search phase.  
@@ -30,13 +30,13 @@ https://github.com/linyuiz/CPhasing-mod (Beta version)
 ---
 # Installation
 ## Install with conda/mamba (Linux64) 
-To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-5/zgtools-EDTA_v2.3.0-5.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
+To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA-mod/releases/download/v2.3.0-5/zgtools-EDTA_v2.3.0-5.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA-mod/releases. 
 
 ```shell
 #1. EDTA install
 mamba create -n EDTA_2.3 && conda activate EDTA_2.3
 wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' EDTA_2.3.yml
-#or use [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_Apr13.yml], [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_2.3.yml]
+#or use [https://github.com/linyuiz/EDTA-mod/blob/master/EDTA_Apr13.yml], [https://github.com/linyuiz/EDTA-mod/blob/master/EDTA_2.3.yml]
 mamba env update -f EDTA_2.3.yml
 mamba install "pandas<3" tir-learner=3.0.7 repeatmodeler=2.0.5  #issue: https://github.com/oushujun/EDTA/issues/616#issuecomment-3855060533
 If your mamba exit with dependency coflicts, you may check out your ~/.condarc file and make sure it use "flexible" solve:
@@ -66,33 +66,33 @@ hmmpress Pfam-A.hmm
 #4. zgtools install
 tar -zxvf zgtools-EDTA_v2.3.0-5.tar.gz
 cd zgtools-EDTA_v2.3.0-5 && chmod +x zg*
-./zgtools EDTA_update
+./zgtools EDTA-mod
 #You can add zgtools to your $PATH
-#If zg-EDTA_update cannot be found, please edit $ZG_BIN in zgtools
+#If zg-EDTA-mod cannot be found, please edit $ZG_BIN in zgtools
 ```
 ---
 
 # Usage
 
-You just need to soft link zgtools to your usual bin folder such as【~/bin】, or use an absolute path such as【/project/softawre/zgtools EDTA_update】.
+You just need to soft link zgtools to your usual bin folder such as【~/bin】, or use an absolute path such as【/project/softawre/zgtools EDTA-mod】.
 ```shell
 Usage:
 
-        zgtools EDTA_update Run_EDTA.cfg
+        zgtools EDTA-mod Run_EDTA.cfg
 
         Run_EDTA.cfg       --Run Config
 
 Example1:
 
-        zgtools EDTA_update example_cfg
+        zgtools EDTA-mod example_cfg
 
 Example2:
 
-        zgtools EDTA_update Run_EDTA.cfg
+        zgtools EDTA-mod Run_EDTA.cfg
 ```
 ⭐️Note regarding genome ID format: Chromosome identifiers should follow formats like Chr1, chr1, Chr1A, or ChrA1. Unanchored sequences (contigs/scaffolds) should be named using the format scaffold1, scaffold2, etc.
 🚩Note that the total Threads are threads multiplied by Parallel Task Num, for example: 60 x 3 = 180 threads.    
-🚩For a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA_update scripts into a single image and distribute the Slurm tasks using that image.    
+🚩For a multi-node Slurm cluster, the EDTA conda environment must be installed in the same path on each node to ensure functionality. Alternatively, you can package all the EDTA-mod scripts into a single image and distribute the Slurm tasks using that image.    
 🚩If you need a reliable TE library, you can check out: https://github.com/simonorozcoarias/PanTEon/   
 🚩Or you can download these two files, unzip them, and then concatenate their contents using ```cat```: ```https://www.girinst.org/server/RepBase/protected/repeatmaskerlibraries/RepBaseRepeatMaskerEdition-20181026.tar.gz``` and
 ```wget https://www.dfam.org/releases/current/families/Dfam-RepeatMasker.lib.gz```.        
@@ -100,9 +100,9 @@ Example2:
 ---
 
 # Example
-1️⃣ First, run `zgtools EDTA_update example_cfg` to generate a sample configuration file, then modify the parameters below according to your needs:
+1️⃣ First, run `zgtools EDTA-mod example_cfg` to generate a sample configuration file, then modify the parameters below according to your needs:
 ```
-zgtools EDTA_update example_cfg
+zgtools EDTA-mod example_cfg
 
 Run_EDTA.cfg:
 ##Data
@@ -128,12 +128,12 @@ TEtrimmer_env_name=TEtrimmer                    #TEtrimmer env name
 Nextflow_env_name=nextflow                      #Nextflow env name
 conda_path=/opt/conda                           #Conda Path
 ```
-2️⃣ Then, run `zgtools EDTA_update Run_EDTA.cfg`. If want to stop the job, please press `Ctrl + C`, not​ `Ctrl + Z`.            
+2️⃣ Then, run `zgtools EDTA-mod Run_EDTA.cfg`. If want to stop the job, please press `Ctrl + C`, not​ `Ctrl + Z`.            
 ✍️Note:​ You are free to set `TEtrimmer_run_mode`. This will create either a `run_TEtrimmer` or `skip_TEtrimmer` directory under `06.anno/`, where subsequent tasks will be executed without conflicting with other files.
 
 # Run log
 
-This is the command【```zgtools EDTA_update Run_EDTA.cfg```】runtime log:   
+This is the command【```zgtools EDTA-mod Run_EDTA.cfg```】runtime log:   
 ```
 #######Run#######
 1. transcode genome ...
@@ -149,7 +149,7 @@ Duration    : 32m 11s
 
 2.3. check rawTE results ...
 2.4. modify LTR insert time ...
-LTR insert time file: /test/02.EDTA_update/03.EDTA+TEtrimmer/output_of_EDTA_update/LTR_insert_time.txt
+LTR insert time file: /test/02.EDTA-mod/03.EDTA+TEtrimmer/output_of_EDTA-mod/LTR_insert_time.txt
 3. filter raw TE candidates and the make stage 1 library ...
 3.1. purify raw LTR/Helitron/TIR ...
 3.2. clean other TEs ...
@@ -207,7 +207,7 @@ Total_solo  Total_intact  Overall_SI_ratio
 1,590       93            17.10
 
 #######Results#######
-Output: /test/02.EDTA_update/03.EDTA+TEtrimmer/output_of_EDTA_update/
+Output: /test/02.EDTA-mod/03.EDTA+TEtrimmer/output_of_EDTA-mod/
 ```
 The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.    
 ⭐️The above tests were conducted on four nodes, each with 1TB of memory and 256 threads.
