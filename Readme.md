@@ -33,7 +33,7 @@ https://github.com/linyuiz/CPhasing-mod (Beta version)
 To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA_update/releases/download/v2.3.0-5/zgtools-EDTA_v2.3.0-5.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA_update/releases. 
 
 ```shell
-##EDTA install
+#1. EDTA install
 mamba create -n EDTA_2.3 && conda activate EDTA_2.3
 wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' EDTA_2.3.yml
 #or use [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_Apr13.yml], [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_2.3.yml]
@@ -45,11 +45,11 @@ channels:
   - bioconda  
 channel_priority: flexible
 
-##nextflow install
+#2. nextflow install
 mamba create -n nextflow && conda activate nextflow
 mamba install -c conda-forge -c bioconda nextflow==22.10.6
 
-#If you do not need to run [TEtrimmer], you can skip this step.
+#3. If you do not need to run [TEtrimmer], you can skip this step.
 ##intasll TEtrimmer conda env 
 mamba create -n TEtrimmer && conda activate TEtrimmer
 mamba install -c bioconda python=3.10 samtools=1.22.1 tetrimmer=1.7.2
@@ -63,7 +63,7 @@ gzip -d Pfam-A.hmm.dat.gz
 conda activate TEtrimmer
 hmmpress Pfam-A.hmm
 
-##zgtools install
+#4. zgtools install
 tar -zxvf zgtools-EDTA_v2.3.0-5.tar.gz
 cd zgtools-EDTA_v2.3.0-5 && chmod +x zg*
 ./zgtools EDTA_update
