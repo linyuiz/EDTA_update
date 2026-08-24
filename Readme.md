@@ -39,6 +39,12 @@ wget https://github.com/oushujun/EDTA/blob/master/EDTA_2.3.yml && sed -i '1d' ED
 #or use [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_Apr13.yml], [https://github.com/linyuiz/EDTA_update/blob/master/EDTA_2.3.yml]
 mamba env update -f EDTA_2.3.yml
 mamba install "pandas<3" tir-learner=3.0.7 repeatmodeler=2.0.5  #issue: https://github.com/oushujun/EDTA/issues/616#issuecomment-3855060533
+If your `mamba` exit with dependency coflicts, you may check out your ~/.condarc file and make sure it use "flexible" solve:
+channels:  
+  - conda-forge  
+  - bioconda  
+channel_priority: flexible
+
 ##nextflow install
 mamba create -n nextflow && conda activate nextflow
 mamba install -c conda-forge -c bioconda nextflow==22.10.6
