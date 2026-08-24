@@ -19,15 +19,14 @@ Ou S., Su W., Liao Y., Chougule K., Agda J. R. A., Hellinga A. J., Lugo C. S. B.
 ---
 
 # Other modified versions of the software
-⭐️ For the modified version of annotation tool `EviAnn`, please visit:
+⭐️ For the modified version of annotation tool `EviAnn`, please visit: [EviAnn-mod](https://github.com/linyuiz/EviAnn-mod) (Not recommended for now, currently under upgrade)  
 
-https://github.com/linyuiz/EviAnn_update (Not recommended for now, currently under upgrade)  
+⭐️ For the modified version of TE transposon annotation tool `EDTA`, please visit: [EDTA-mod](https://github.com/linyuiz/EDTA-mod) (Beta version)  
 
-⭐️ For the modified version of scaffolding tool `C-Phasing`, please visit: 
-
-https://github.com/linyuiz/CPhasing-mod (Beta version)   
+⭐️ For the modified version of scaffolding tool `C-Phasing`, please visit: [CPhasing-mod](https://github.com/linyuiz/CPhasing-mod) (Beta version)   
 
 ---
+
 # Installation
 ## Install with conda/mamba (Linux64) 
 To install, first download the latest distribution tarball：[zgtools-EDTA_*.tar.gz](https://github.com/linyuiz/EDTA-mod/releases/download/v2.3.0-5/zgtools-EDTA_v2.3.0-5.tar.gz) (not one of the Source code files!) from the github release page：https://github.com/linyuiz/EDTA-mod/releases. 
