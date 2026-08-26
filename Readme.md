@@ -133,13 +133,39 @@ conda_path=/opt/conda                           #Conda Path
 
 This is the command【```zgtools EDTA-mod Run_EDTA.cfg```】runtime log:   
 ```
+#######Data#######
+##Data
+☆data_work_mode=slurm                           #local or slurm
+☆data_genome_fa=NIP.fa                          #genome file
+☆data_miu_rate=1.3e-8                           #[plant]Osat:1.3e-8; Atha:7e-9
+☆data_RepeatModeler2_exist_lib=none             #none/RM2-families.fa
+☆data_TEtrimmer_run_mode=yes                    #whether run TEtrimmer(yes|no)
+☆data_curated_TElib=curated.TElib.fa            #none|curated.TElib.fa
+##EDTA
+EDTA_subtask_threads=30                          #EDTA each task threads
+EDTA_parallel_subtask_num=5                      #EDTA parallel subtask number
+##TEtrimmer
+TEtrimmer_threads=60                             #TEtrimmer threads
+☆whether_only_use_TEtrimmer_unknown=no          #yes/no
+##RepeatMasker
+RepeatMasker_threads=30                          #RepeatMasker each task threads
+RepeatMasker_parallel_num=5                      #RepeatMasker parallel num
+whether_count_solo_intact_LTR=yes                #whether count S/I rate(yes|no)
+##CondaEnv
+conda_path=~/miniconda3                          #conda path
+EDTA_env_name=EDTA_2.3                           #EDTA env name
+nextflow_env_name=nextflow                       #nextflow env name
+TEtrimmer_env_name=TEtrimmer                     #TEtrimmer env name
+TEtrimmer_path=~/software/TEtrimmer/tetrimmer/   #TEtrimmer path
+TEtrimmer_pfam_db=~/software/TEtrimmer/pfam_db/  #TEtrimmer pfam db path
+
 #######Run#######
 1. transcode genome ...
 Genome Size: 385,710,679 bp
 2. denovo discover raw TEs ...
-2.1. parallel discover TEs, threads: 60
-[ec/86fbe9] process > discoverTE (LINE) [100%] 5 of 5 ✔
-Duration    : 8h 12m 2s
+2.1. parallel discover TEs, each task threads: 30 ...
+[ec/86fbe9] process > discoverTE (LINE) [100%] 4 of 4 ✔
+Duration    : 11h 12m 2s
 
 2.2. deal with rawTE output ...
 [a0/38a834] process > deal_with (TIR) [100%] 5 of 5 ✔
@@ -147,65 +173,82 @@ Duration    : 32m 11s
 
 2.3. check rawTE results ...
 2.4. modify LTR insert time ...
-LTR insert time file: /test/02.EDTA-mod/03.EDTA+TEtrimmer/output_of_EDTA-mod/LTR_insert_time.txt
+LTR insert time file: /project501/zhangyaolong/01.project/18.EDTA_update/output_of_EDTA-mod/LTR_insert_time.txt
 3. filter raw TE candidates and the make stage 1 library ...
 3.1. purify raw LTR/Helitron/TIR ...
 3.2. clean other TEs ...
+[fd/aacb97] process > FilterTE (purify_LTRint) [100%] 2 of 2 ✔
+Duration    : 9m 37s
+
 3.3. clean LINEs and LTRs in SINEs ...
+[b5/a4e4c6] process > FilterTE (clean_SINE) [100%] 1 of 1 ✔
+Duration    : 7m 16s
+
 3.4. clean LTRs and nonLTRs in TIRs and Helitrons ...
+[ca/eca345] process > FilterTE (clean_otherTE) [100%] 1 of 1 ✔
+Duration    : 12m 22s
+
+3.5. cluster TIRs and Helitrons and make stg1 raw library ...
+[b2/8ff066] process > FilterTE (cleanup_nested) [100%] 1 of 1 ✔
+Duration    : 1h 16s
+
 3.6. check stg1 raw library ...
 4. merge other TE library ...
 4.1. identify remaining TEs in the filtered RM2 library ...
-4.2. remove known TEs in the EDTA library ...
-5. TEtrimmer generate curated TE library ...
-[b6/6325d5] process > trimTE (TEtrimmer) [100%] 1 of 1 ✔
-Duration    : 6h 7m 41s
+[80/2d02b9] process > MergeTE (clean_RM2) [100%] 1 of 1 ✔
+Duration    : 1h 42m 49s
 
+4.2. remove known TEs in the EDTA library ...
+[6d/b24698] process > MergeTE (clean_HQlib) [100%] 1 of 1 ✔
+Duration    : 11m 12s
+
+5. skip TEtrimmer pipeline ~
 6. Post-library annotate ...
 6.1. split genome ...
-6.2. annotate TEs using RepeatMasker with TEtrimmer results ...
-[2f/89ffc9] process > AnnoTE (seq_3.fasta) [100%] 12 of 12 ✔
-Duration    : 9m 20s
+6.2. annotate TEs using RepeatMasker with EDTA results ...
+[10/19465d] process > AnnoTE (seq_1.fasta)  [100%] 12 of 12 ✔
+Duration    : 1h 50m 8s
 
 6.3. merge RepeatMasker output ...
+[58/b4e22a] process > AnnoTE (merge_RMout) [100%] 1 of 1 ✔
+Duration    : 1m 11s
+
 6.4. make summary table for the non-overlapping annotation ...
 TE anno statistic:
 Class     Family         Count    bpMasked     %masked
-LTR                      52,174   93,424,430   24.22
-          Copia          10,046   13,627,935   3.53
-          Gypsy          38,371   77,348,124   20.05
-          TRIM           943      250,050      0.06
-          Bel-Pao        0        0            0.00
-          ERV            0        0            0.00
-          unknown        1,462    1,364,722    0.35
-DNA                      220,972  74,974,112   19.44
-TIR       CACTA          19,586   14,327,744   3.71
-          Mutator        65,084   22,868,013   5.93
-          PIF-Harbinger  40,501   9,735,814    2.52
-          Tc1-Mariner    31,473   6,818,056    1.77
-          hAT            19,632   5,997,015    1.55
-          unknown        9,470    2,215,790    0.57
-NonTIR    Helitron       33,752   13,467,592   3.49
-LINE                     8,132    4,795,627    1.24
-          R2             0        0            0.00
-          RTE            0        0            0.00
-          L1             4,724    3,030,757    0.79
-          unknown        3,408    1,832,455    0.48
-SINE                     5,250    861,246      0.22
-          tRNA           1,855    328,773      0.09
+LTR                      65,073   96,368,187   24.98
+          Copia          13,285   14,452,400   3.75
+          Gypsy          46,460   80,061,806   20.76
+          TRIM           1,213    220,677      0.06
+          Bel-Pao        14       6,334        0.00
+          ERV            396      53,888       0.01
+          unknown        2,680    910,113      0.24
+DNA                      304,796  104,385,152  27.06
+TIR       CACTA          28,607   18,151,556   4.71
+          Mutator        70,245   25,897,029   6.71
+          PIF-Harbinger  43,830   10,485,982   2.72
+          Tc1-Mariner    58,214   15,184,198   3.94
+          hAT            24,971   7,334,824    1.90
+          unknown        11,953   2,879,052    0.75
+NonTIR    Helitron       60,881   25,976,035   6.73
+LINE                     15,249   7,115,770    1.84
+          R2             642      57,728       0.01
+          RTE            622      100,561      0.03
+          L1             7,663    4,330,360    1.12
+          unknown        4,555    2,417,750    0.63
+SINE                     7,012    1,401,742    0.36
+          tRNA           1,464    234,088      0.06
           7SL            0        0            0.00
           5S             0        0            0.00
-          unknown        3,395    544,874      0.14
-Unknown                  330      229,356      0.06
-Total TE                 286,940  174,130,365  45.15
+          unknown        5,434    1,175,809    0.30
+Unknown                  2,055    671,718      0.17
+Total TE                 398,701  212,330,356  55.05
 
 6.5. generate masked genome ...
-6.6. calculate solo/intact LTR ratio ...
-Total_solo  Total_intact  Overall_SI_ratio
-1,590       93            17.10
+6.6. skipped calculate solo/intact LTR ratio ...
 
 #######Results#######
-Output: /test/02.EDTA-mod/03.EDTA+TEtrimmer/output_of_EDTA-mod/
+Output: /EDTA/output_of_EDTA-mod/
 ```
 The Nextflow execution trace in the diagram has been hidden. For the specific time consumed by each process, please refer to the actual run .log file.    
 ⭐️The above tests were conducted on four nodes, each with 1TB of memory and 256 threads.
