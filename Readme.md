@@ -146,11 +146,11 @@ EDTA_subtask_threads=30                          #EDTA each task threads
 EDTA_parallel_subtask_num=5                      #EDTA parallel subtask number
 ##TEtrimmer
 TEtrimmer_threads=60                             #TEtrimmer threads
-☆whether_only_use_TEtrimmer_unknown=no          #yes/no
+☆whether_only_use_TEtrimmer_unknown=yes         #yes/no
 ##RepeatMasker
 RepeatMasker_threads=30                          #RepeatMasker each task threads
 RepeatMasker_parallel_num=5                      #RepeatMasker parallel num
-whether_count_solo_intact_LTR=yes                #whether count S/I rate(yes|no)
+whether_count_solo_intact_LTR=no                 #whether count S/I rate(yes|no)
 ##CondaEnv
 conda_path=~/miniconda3                          #conda path
 EDTA_env_name=EDTA_2.3                           #EDTA env name
